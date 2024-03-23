@@ -56,12 +56,15 @@ if (Array.isArray(obj.results) && obj.results.length > 0) {
       vulnerabilities: result.vulnerabilities,
     });
 
+    let vulnerabilitiesDetails = `## Twistlock Vulnerabilities (${result.vulnerabilities.length})\n`;
+    let markdownVulnerabilitiesWithDetails = `${vulnerabilitiesDetails}\n\n${markdownVulnerabilities}\n`;
+
     // log the Markdown vulnerabilities to the console
-    console.log(markdownVulnerabilities);
+    console.log(markdownVulnerabilitiesWithDetails);
 
     // write the Markdown vulnerabilities to a file
     const twistlockVulnerabilityTable = "./twistlock-vulnerability-table.md";
-    fs.writeFileSync(twistlockVulnerabilityTable, markdownVulnerabilities);
+    fs.writeFileSync(twistlockVulnerabilityTable, `${markdownVulnerabilitiesWithDetails}\n`);
     core.setOutput("vulnerability-table", twistlockVulnerabilityTable);
 
     // count the number of vulnerabilities with each severity
@@ -101,11 +104,19 @@ if (Array.isArray(obj.results) && obj.results.length > 0) {
     // var rows = Object.keys(severityCounts).map(severity => ({ Severity: severity, Count: severityCounts[severity] }));
 
     var markdownSummary = json2md({ table: { headers: headers, rows: rows } });
+
+    // add scan details to the summary table
+    let scanTime = new Date(obj.results[0].scanTime).toISOString().slice(0, 16).replace('T', ' ');
+    let scanId = obj.results[0].scanID;
+    let url = obj.consoleURL;
+    let summaryDetails = `## Twistlock Scan Summary\n\nScan: 💾 ${scanId} | 📅 ${scanTime} | 🔗 [More Details](${url})`;
+    let markdownSummaryWithDetails = `${summaryDetails}\n\n${markdownSummary}\n`;
+
     // log the Markdown table to the console
-    console.log(markdownSummary);
+    console.log(markdownSummaryWithDetails);
     // write the Markdown table to a file
     const twistlockSummaryTable = "./twistlock-summary-table.md";
-    fs.writeFileSync(twistlockSummaryTable, markdownSummary);
+    fs.writeFileSync(twistlockSummaryTable, markdownSummaryWithDetails);
     core.setOutput("summary-table", twistlockSummaryTable);
   }
 } else {
