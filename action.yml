@@ -15,6 +15,10 @@ outputs:
     description: "The summary table in markdown format"
   vulnerability-table:
     description: "The vulnerabilities table in markdown format"
+  compliance-summary-table:
+    description: "The compliance summary table in markdown format"
+  compliance-table:
+    description: "The compliance table in markdown format"
 
 runs:
   using: "node20"

@@ -1,5 +1,6 @@
 name: "Publish GitHub Action"
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
