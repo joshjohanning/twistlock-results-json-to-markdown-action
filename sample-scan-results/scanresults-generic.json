@@ -1,0 +1,242 @@
+{
+	"results": [
+		{
+			"id": "generic123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+			"name": "registry.company.com/app:v1.2.3",
+			"distro": "Red Hat Enterprise Linux release 8.8 (Ootpa)",
+			"distroRelease": "RHEL8",
+			"digest": "sha256:abcd1234567890abcd1234567890abcd1234567890abcd1234567890abcd1234",
+			"collections": [
+				"All",
+				"Latest Timestamp for Collection"
+			],
+			"packages": [
+				{
+					"type": "os",
+					"name": "crypto-policies",
+					"version": "20221215-1.gitece0092.el8",
+					"licenses": [
+						"LGPLv2+"
+					]
+				},
+				{
+					"type": "os",
+					"name": "python3-setuptools",
+					"version": "53.0.0-12.el9",
+					"licenses": [
+						"MIT and (BSD or ASL 2.0)"
+					]
+				},
+				{
+					"type": "os",
+					"name": "redhat-release",
+					"version": "8.8-0.8.el8",
+					"licenses": [
+						"GPLv2"
+					]
+				},
+				{
+					"type": "os",
+					"name": "fstrm",
+					"version": "0.6.1-3.el8",
+					"licenses": [
+						"MIT"
+					]
+				},
+				{
+					"type": "os",
+					"name": "filesystem",
+					"version": "3.8-6.el8",
+					"licenses": [
+						"Public Domain"
+					]
+				},
+				{
+					"type": "os",
+					"name": "geolite2-country",
+					"version": "20180605-1.el8",
+					"licenses": [
+						"CC-BY-SA"
+					]
+				},
+				{
+					"type": "os",
+					"name": "publicsuffix-list-dafsa",
+					"version": "20180723-1.el8",
+					"licenses": [
+						"MPLv2.0"
+					]
+				},
+				{
+					"type": "os",
+					"name": "libmaxminddb",
+					"version": "1.2.0-10.el8",
+					"licenses": [
+						"ASL 2.0 and BSD"
+					]
+				},
+				{
+					"type": "os",
+					"name": "pcre2",
+					"version": "10.32-3.el8_6",
+					"licenses": [
+						"BSD"
+					]
+				},
+				{
+					"type": "os",
+					"name": "bind-libs",
+					"version": "9.11.36-8.el8_8.1",
+					"licenses": [
+						"MPLv2.0"
+					]
+				},
+				{
+					"type": "os",
+					"name": "libibverbs",
+					"version": "44.0-2.el8.1",
+					"licenses": [
+						"GPLv2 or BSD"
+					]
+				}
+			],
+			"compliances": [],
+			"complianceDistribution": {
+				"critical": 0,
+				"high": 0,
+				"medium": 0,
+				"low": 0,
+				"total": 0
+			},
+			"complianceScanPassed": true,
+			"vulnerabilities": [
+				{
+					"id": "CVE-2023-20873",
+					"status": "fixed in 2.7.11, 3.0.6",
+					"cvss": 9.8,
+					"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+					"description": "In Spring Boot versions 3.0.0 - 3.0.5, 2.7.0 - 2.7.10, and older unsupported versions, an application that is deployed to Cloud Foundry could be susceptible to a security bypass. Users of affected versions should apply the following mitigation: 3.0.x users should upgrade to 3.0.6+. 2.7.x users should upgrade to 2.7.11+. Users of older, unsupported versions should upgrade to 3.0.6+ or 2.7.11+.",
+					"severity": "critical",
+					"packageName": "spring-boot-actuator-autoconfigure",
+					"packageVersion": "2.6.6",
+					"link": "https://nvd.nist.gov/vuln/detail/CVE-2023-20873",
+					"riskFactors": [
+						"DoS - High",
+						"Has fix",
+						"Attack complexity: low",
+						"Attack vector: network",
+						"Critical severity"
+					],
+					"impactedVersions": [
+						"<2.7.11"
+					],
+					"publishedDate": "2023-04-20T17:33:27-04:00",
+					"discoveredDate": "2024-03-21T16:11:08-04:00",
+					"graceDays": -287,
+					"fixDate": "2023-04-24T16:52:08-04:00",
+					"layerTime": "1969-12-31T19:00:00-05:00",
+					"packagePath": "/home/appuser/app.jar/spring-boot-actuator-autoconfigure-2.6.6.jar"
+				},
+				{
+					"id": "CVE-2022-1471",
+					"status": "fixed in 2.0",
+					"cvss": 9.8,
+					"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+					"description": "SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization. Deserializing yaml content provided by an attacker can lead to remote code execution. We recommend using SnakeYaml's SafeConsturctor when parsing untrusted content to restrict deserialization. We recommend upgrading to version 2.0 and beyond.",
+					"severity": "critical",
+					"packageName": "org.yaml_snakeyaml",
+					"packageVersion": "1.31",
+					"link": "https://nvd.nist.gov/vuln/detail/CVE-2022-1471",
+					"riskFactors": [
+						"Attack vector: network",
+						"Critical severity",
+						"DoS - Low",
+						"Exploit exists - POC",
+						"Has fix",
+						"Remote execution"
+					],
+					"impactedVersions": [
+						"<2.0"
+					],
+					"publishedDate": "2022-12-01T06:15:10-05:00",
+					"discoveredDate": "2024-03-21T16:11:08-04:00",
+					"graceDays": -300,
+					"fixDate": "2022-12-15T08:30:22-05:00",
+					"layerTime": "1969-12-31T19:00:00-05:00",
+					"packagePath": "/home/appuser/app.jar/org.yaml_snakeyaml-1.31.jar"
+				},
+				{
+					"id": "CVE-2023-1370",
+					"status": "fixed in 2.8.12",
+					"cvss": 7.5,
+					"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+					"description": "JSON-Java is a reference implementation of a JSON package in Java. When reaching a '[' or '{' character in the JSON input, the code parses an array or an object respectively. It was discovered that the code does not have any limit to the nesting of such arrays or objects. Since the parsing of nested arrays and objects is done recursively, nesting too many of them can cause a stack exhaustion (stack overflow) and crash the program. This vulnerability is fixed in version 20230227.",
+					"severity": "high",
+					"packageName": "org.json",
+					"packageVersion": "20180813",
+					"link": "https://nvd.nist.gov/vuln/detail/CVE-2023-1370",
+					"riskFactors": [
+						"DoS - High",
+						"Has fix",
+						"Attack complexity: low",
+						"Attack vector: network",
+						"High severity"
+					],
+					"impactedVersions": [
+						"<20230227"
+					],
+					"publishedDate": "2023-03-16T14:15:09-04:00",
+					"discoveredDate": "2024-03-21T16:11:08-04:00",
+					"graceDays": -280,
+					"fixDate": "2023-03-20T10:45:15-04:00",
+					"layerTime": "1969-12-31T19:00:00-05:00",
+					"packagePath": "/home/appuser/app.jar/org.json-20180813.jar"
+				},
+				{
+					"id": "CVE-2022-42003",
+					"status": "fixed in 2.13.4.1, 2.14.0-rc1",
+					"cvss": 7.5,
+					"vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+					"description": "In FasterXML jackson-databind before 2.14.0-rc1, resource exhaustion can occur because of a lack of a check in BeanDeserializer._deserializeFromArray to prevent use of deeply nested arrays. An application is vulnerable only with certain customized choices for deserialization.",
+					"severity": "high",
+					"packageName": "com.fasterxml.jackson.core_jackson-databind",
+					"packageVersion": "2.11.4",
+					"link": "https://nvd.nist.gov/vuln/detail/CVE-2022-42003",
+					"riskFactors": [
+						"DoS - High",
+						"Has fix",
+						"Attack complexity: low",
+						"Attack vector: network",
+						"High severity"
+					],
+					"impactedVersions": [
+						"<2.13.4.1"
+					],
+					"publishedDate": "2022-10-02T01:15:07-04:00",
+					"discoveredDate": "2024-03-21T16:11:08-04:00",
+					"graceDays": -350,
+					"fixDate": "2022-10-08T14:20:30-04:00",
+					"layerTime": "1969-12-31T19:00:00-05:00",
+					"packagePath": "/home/appuser/app.jar/com.fasterxml.jackson.core_jackson-databind-2.11.4.jar"
+				}
+			],
+			"vulnerabilityDistribution": {
+				"critical": 2,
+				"high": 2,
+				"medium": 0,
+				"low": 0,
+				"total": 4
+			},
+			"vulnerabilityScanPassed": false,
+			"history": [
+				{
+					"created": "2024-03-20T12:55:02-04:00",
+					"instruction": "CMD java $JAVA_OPTS $ADD_OPTS -jar app.jar"
+				}
+			],
+			"scanTime": "2024-08-28T15:30:00.000000Z",
+			"scanID": "generic123456789abc"
+		}
+	],
+	"consoleURL": "https://console.example.com/compute?computeState=/monitor/vulnerabilities/images/ci?search=generic123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+}

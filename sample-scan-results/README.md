@@ -1,17 +1,17 @@
-# twistlock-results-json-to-markdown-action
+# sample-scan-results
 
-An action to convert Twistlock/Prisma scan results from JSON to Markdown
+You can verify the functionality of this action by running it against the sample scan results provided in this directory.
 
-## Usage
+## Testing in Actions
 
-```yaml
-steps:
-  - run: twistcli scan <params> --output-file scan-results.json
+Testing in Actions:
+
+```yml
   - name: convert-twistlock-json-results-to-markdown
     id: convert-twistlock-results
     uses: joshjohanning/twistlock-results-json-to-markdown-action@v1
     with:
-      results-json-path: scanresults.json
+      results-json-path: sample-scan-results/scanresults-generic.json
   - name: write to job summary
     run: |
       cat ${{ steps.convert-twistlock-results.outputs.summary-table }} >> $GITHUB_STEP_SUMMARY
@@ -20,10 +20,13 @@ steps:
       cat ${{ steps.convert-twistlock-results.outputs.compliance-summary-table }} >> $GITHUB_STEP_SUMMARY
 ```
 
-## Example
+## Testing Locally
 
-![Twistlock JSON to Markdown Job Summary Example](https://github.com/joshjohanning/twistlock-results-json-to-markdown-action/assets/19912012/64e4e4bb-95a1-472c-be23-1756b440b974)
+You can also run the scan outside of Actions for testing purposes:
 
-## Testing with Sample Scan Results
-
-See [sample-scan-results/README.md](./sample-scan-results/README.md)
+```sh
+cd twistlock-results-json-to-markdown-action
+npm install
+node src/index.js --file sample-scan-results/scanresults-generic.json
+cat twistlock*.md
+```
