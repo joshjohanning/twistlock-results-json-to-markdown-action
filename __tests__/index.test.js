@@ -16,11 +16,11 @@ describe('Twistlock Results to Markdown', () => {
   ];
 
   const cleanupOutputFiles = () => {
-    outputFiles.forEach(file => {
+    for (const file of outputFiles) {
       if (fs.existsSync(file)) {
         fs.unlinkSync(file);
       }
-    });
+    }
   };
 
   describe('Integration Tests', () => {
@@ -42,9 +42,9 @@ describe('Twistlock Results to Markdown', () => {
       });
 
       // Verify all output files were created
-      outputFiles.forEach(file => {
+      for (const file of outputFiles) {
         expect(fs.existsSync(file)).toBe(true);
-      });
+      }
     });
 
     test('should generate vulnerability table with correct content', () => {
