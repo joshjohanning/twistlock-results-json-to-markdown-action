@@ -207,9 +207,18 @@ export function processResults(dataString) {
 
 // Main entry point when run as a script (not when imported for tests)
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const argv = yargs(hideBin(process.argv)).argv;
+  const argv = yargs(hideBin(process.argv))
+    .option('file', {
+      type: 'string',
+      description: 'Path to the Twistlock/Prisma scan results JSON file'
+    })
+    .wrap(null)
+    .version()
+    .help()
+    .parse();
+
   const data = fs.readFileSync(
-    argv.file || core.getInput('results-json-path', { required: true }) || 'scanresults.json',
+    argv.file || core.getInput('results-json-path', { required: true }),
     'utf8'
   );
   processResults(data);
