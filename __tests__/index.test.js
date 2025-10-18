@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import fs from 'fs';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import { processResults } from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -37,7 +37,7 @@ describe('Twistlock Results to Markdown', () => {
 
     test('should generate all required markdown files', () => {
       // Run the script with the test data
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
@@ -49,7 +49,7 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate vulnerability table with correct content', () => {
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
@@ -63,7 +63,7 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate compliance table with correct content', () => {
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
@@ -77,7 +77,7 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate summary table with metadata', () => {
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
@@ -93,7 +93,7 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate compliance summary table', () => {
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
@@ -106,7 +106,7 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should include severity symbols in tables', () => {
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
@@ -119,7 +119,7 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should format scan time correctly', () => {
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
@@ -131,7 +131,7 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should include console URL link', () => {
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
@@ -149,7 +149,7 @@ describe('Twistlock Results to Markdown', () => {
       cleanupOutputFiles();
 
       // Generate files for these tests
-      execSync(`node src/index.js --file=${testDataPath}`, {
+      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
         cwd: join(__dirname, '..'),
         encoding: 'utf8'
       });
