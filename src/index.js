@@ -217,9 +217,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     .help()
     .parse();
 
-  const data = fs.readFileSync(
-    argv.file || core.getInput('results-json-path', { required: true }),
-    'utf8'
-  );
+  const data = fs.readFileSync(argv.file || core.getInput('results-json-path', { required: true }), 'utf8');
   processResults(data);
 }
