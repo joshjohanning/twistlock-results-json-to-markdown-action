@@ -1,25 +1,24 @@
-name: "Twistlock/Prisma Scan Results JSON to Markdown"
-description: "An action to convert Twistlock/Prisma scan results from JSON to Markdown"
+name: 'Twistlock/Prisma Scan Results JSON to Markdown'
+description: 'An action to convert Twistlock/Prisma scan results from JSON to Markdown'
 
 branding:
-  icon: "file-text"
-  color: "black"
+  icon: 'file-text'
+  color: 'black'
 
 inputs:
   results-json-path:
-    description: "The path to the JSON file from the `twistcli scan --output-file scan-results.json` flag."
+    description: 'The path to the JSON file from the `twistcli scan --output-file scan-results.json` command.'
     required: true
-    default: "scan-results.json"
 outputs:
   summary-table:
-    description: "The summary table in markdown format"
+    description: 'The summary table in markdown format'
   vulnerability-table:
-    description: "The vulnerabilities table in markdown format"
+    description: 'The vulnerabilities table in markdown format'
   compliance-summary-table:
-    description: "The compliance summary table in markdown format"
+    description: 'The compliance summary table in markdown format'
   compliance-table:
-    description: "The compliance table in markdown format"
+    description: 'The compliance table in markdown format'
 
 runs:
-  using: "node20"
-  main: "dist/index.js"
+  using: 'node20'
+  main: 'dist/index.js'
