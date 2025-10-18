@@ -7,9 +7,8 @@ branding:
 
 inputs:
   results-json-path:
-    description: 'The path to the JSON file from the `twistcli scan --output-file scan-results.json` flag.'
+    description: 'The path to the JSON file from the `twistcli scan --output-file scan-results.json` command.'
     required: true
-    default: 'scan-results.json'
 outputs:
   summary-table:
     description: 'The summary table in markdown format'
