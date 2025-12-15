@@ -41,7 +41,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.11.1",
+    "@actions/core": "^2.0.1",
     "json2md": "^2.0.3",
     "yargs": "^18.0.0"
   },
