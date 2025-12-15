@@ -1,7 +1,7 @@
 {
   "name": "twistlock-results-json-to-markdown-action",
   "description": "Twistlock/Prisma Scan Results JSON to Markdown",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "",
   "private": true,
   "homepage": "https://github.com/joshjohanning/twistlock-results-json-to-markdown-action#readme",
@@ -41,7 +41,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.11.1",
+    "@actions/core": "^2.0.1",
     "json2md": "^2.0.3",
     "yargs": "^18.0.0"
   },
