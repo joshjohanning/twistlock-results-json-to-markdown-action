@@ -1,0 +1,52 @@
+name: Integration Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test node script directly
+        run: node src/index.js --file=sample-scan-results/scanresults-generic.json
+
+      - name: Show generated markdown files
+        run: |
+          echo "Generated files:"
+          ls -la twistlock*.md
+          echo ""
+          echo "=== Summary Table ==="
+          cat twistlock-summary-table.md
+          echo ""
+          echo "=== Vulnerability Table ==="
+          cat twistlock-vulnerability-table.md
+          echo ""
+          echo "=== Compliance Table ==="
+          cat twistlock-compliance-table.md
+          echo ""
+          echo "=== Compliance Summary Table ==="
+          cat twistlock-compliance-summary-table.md
+
+      - name: Write to job summary
+        run: |
+          cat twistlock-summary-table.md >> $GITHUB_STEP_SUMMARY
+          cat twistlock-vulnerability-table.md >> $GITHUB_STEP_SUMMARY
+          cat twistlock-compliance-table.md >> $GITHUB_STEP_SUMMARY
+          cat twistlock-compliance-summary-table.md >> $GITHUB_STEP_SUMMARY
