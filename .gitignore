@@ -32,6 +32,6 @@ Thumbs.db
 # Build output in branches
 dist/
 
-# twistlock action
+# Repository-specific entries (preserved during sync)
 scanresults.json
 twistlock-*.md
