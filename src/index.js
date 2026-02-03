@@ -1,7 +1,7 @@
 import json2md from 'json2md';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import core from '@actions/core';
+import * as core from '@actions/core';
 import fs from 'fs';
 
 // add a custom converter for vulnerabilities
