@@ -21,7 +21,7 @@ steps:
     id: convert-twistlock-results
     uses: joshjohanning/twistlock-results-json-to-markdown-action@v2
     with:
-      results-json-path: scanresults.json
+      results-json-path: scan-results.json
   - name: write to job summary
     run: |
       cat ${{ steps.convert-twistlock-results.outputs.summary-table }} >> $GITHUB_STEP_SUMMARY
