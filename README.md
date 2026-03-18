@@ -8,6 +8,10 @@
 
 An action to convert Twistlock/Prisma scan results from JSON to Markdown
 
+## What's new
+
+Please refer to the [release page](https://github.com/joshjohanning/twistlock-results-json-to-markdown-action/releases) for the latest release notes.
+
 ## Usage
 
 ```yaml
@@ -15,9 +19,9 @@ steps:
   - run: twistcli scan <params> --output-file scan-results.json
   - name: convert-twistlock-json-results-to-markdown
     id: convert-twistlock-results
-    uses: joshjohanning/twistlock-results-json-to-markdown-action@v1
+    uses: joshjohanning/twistlock-results-json-to-markdown-action@v2
     with:
-      results-json-path: scanresults.json
+      results-json-path: scan-results.json
   - name: write to job summary
     run: |
       cat ${{ steps.convert-twistlock-results.outputs.summary-table }} >> $GITHUB_STEP_SUMMARY
