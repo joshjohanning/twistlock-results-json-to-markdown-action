@@ -9,7 +9,7 @@ Testing in Actions:
 ```yml
 - name: convert-twistlock-json-results-to-markdown
   id: convert-twistlock-results
-  uses: joshjohanning/twistlock-results-json-to-markdown-action@v1
+  uses: joshjohanning/twistlock-results-json-to-markdown-action@v2
   with:
     results-json-path: sample-scan-results/scanresults-generic.json
 - name: write to job summary
