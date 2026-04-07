@@ -1,6 +1,7 @@
 # twistlock-results-json-to-markdown-action
 
 [![GitHub release](https://img.shields.io/github/release/joshjohanning/twistlock-results-json-to-markdown-action.svg?logo=github&labelColor=333)](https://github.com/joshjohanning/twistlock-results-json-to-markdown-action/releases)
+[![Immutable releases](https://img.shields.io/badge/releases-immutable-blue?labelColor=333)](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases)
 [![GitHub marketplace](https://img.shields.io/badge/marketplace-Twistlock%2FPrisma%20Scan%20Results%20JSON%20to%20Markdown-blue?logo=github&labelColor=333)](https://github.com/marketplace/actions/twistlock-prisma-scan-results-json-to-markdown)
 [![CI](https://github.com/joshjohanning/twistlock-results-json-to-markdown-action/actions/workflows/ci.yml/badge.svg)](https://github.com/joshjohanning/twistlock-results-json-to-markdown-action/actions/workflows/ci.yml)
 [![Publish GitHub Action](https://github.com/joshjohanning/twistlock-results-json-to-markdown-action/actions/workflows/publish.yml/badge.svg)](https://github.com/joshjohanning/twistlock-results-json-to-markdown-action/actions/workflows/publish.yml)
