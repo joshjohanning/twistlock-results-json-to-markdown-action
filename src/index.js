@@ -205,7 +205,8 @@ export function processResults(dataString) {
 
 // Run the action when executed directly while keeping processResults importable for tests.
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const resultsJsonPath = process.env.INPUT_RESULTS_JSON_PATH || core.getInput('results-json-path', { required: true });
+  const resultsJsonPath =
+    process.env.INPUT_RESULTS_JSON_PATH?.trim() || core.getInput('results-json-path', { required: true });
   const data = fs.readFileSync(resultsJsonPath, 'utf8');
   processResults(data);
 }
