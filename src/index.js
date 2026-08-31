@@ -1,6 +1,4 @@
 import json2md from 'json2md';
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
 import * as core from '@actions/core';
 import fs from 'fs';
 
@@ -205,18 +203,10 @@ export function processResults(dataString) {
   return null;
 }
 
-// Main entry point when run as a script (not when imported for tests)
+// Run the action when executed directly while keeping processResults importable for tests.
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const argv = yargs(hideBin(process.argv))
-    .option('file', {
-      type: 'string',
-      description: 'Path to the Twistlock/Prisma scan results JSON file'
-    })
-    .wrap(null)
-    .version()
-    .help()
-    .parse();
-
-  const data = fs.readFileSync(argv.file || core.getInput('results-json-path', { required: true }), 'utf8');
+  const resultsJsonPath =
+    process.env.INPUT_RESULTS_JSON_PATH?.trim() || core.getInput('results-json-path', { required: true });
+  const data = fs.readFileSync(resultsJsonPath, 'utf8');
   processResults(data);
 }

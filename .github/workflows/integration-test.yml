@@ -27,7 +27,9 @@ jobs:
         run: npm ci
 
       - name: Test node script directly
-        run: node src/index.js --file=sample-scan-results/scanresults-generic.json
+        run: node src/index.js
+        env:
+          INPUT_RESULTS_JSON_PATH: sample-scan-results/scanresults-generic.json
 
       - name: Show generated markdown files
         run: |
