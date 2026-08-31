@@ -27,6 +27,6 @@ You can also run the scan outside of Actions for testing purposes:
 ```sh
 cd twistlock-results-json-to-markdown-action
 npm install
-node src/index.js --file sample-scan-results/scanresults-generic.json
+INPUT_RESULTS_JSON_PATH=sample-scan-results/scanresults-generic.json node src/index.js
 cat twistlock*.md
 ```

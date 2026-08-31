@@ -36,10 +36,11 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate all required markdown files', () => {
-      // Run the script with the test data
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      // Run the action locally through its input environment variable
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
 
       // Verify all output files were created
@@ -49,9 +50,10 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate vulnerability table with correct content', () => {
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
 
       const vulnerabilityTable = fs.readFileSync('./twistlock-vulnerability-table.md', 'utf8');
@@ -63,9 +65,10 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate compliance table with correct content', () => {
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
 
       const complianceTable = fs.readFileSync('./twistlock-compliance-table.md', 'utf8');
@@ -77,9 +80,10 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate summary table with metadata', () => {
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
 
       const summaryTable = fs.readFileSync('./twistlock-summary-table.md', 'utf8');
@@ -93,9 +97,10 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should generate compliance summary table', () => {
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
 
       const complianceSummaryTable = fs.readFileSync('./twistlock-compliance-summary-table.md', 'utf8');
@@ -106,9 +111,10 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should include severity symbols in tables', () => {
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
 
       const summaryTable = fs.readFileSync('./twistlock-summary-table.md', 'utf8');
@@ -119,9 +125,10 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should format scan time correctly', () => {
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
 
       const summaryTable = fs.readFileSync('./twistlock-summary-table.md', 'utf8');
@@ -131,9 +138,10 @@ describe('Twistlock Results to Markdown', () => {
     });
 
     test('should include console URL link', () => {
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
 
       const summaryTable = fs.readFileSync('./twistlock-summary-table.md', 'utf8');
@@ -149,9 +157,10 @@ describe('Twistlock Results to Markdown', () => {
       cleanupOutputFiles();
 
       // Generate files for these tests
-      execFileSync('node', ['src/index.js', `--file=${testDataPath}`], {
+      execFileSync('node', ['src/index.js'], {
         cwd: join(__dirname, '..'),
-        encoding: 'utf8'
+        encoding: 'utf8',
+        env: { ...process.env, INPUT_RESULTS_JSON_PATH: testDataPath }
       });
     });
 
